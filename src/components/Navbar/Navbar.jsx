@@ -33,13 +33,15 @@ const Navbar = () => {
 						<Link className="text-sm text-white flex items-center gap-2">
 							<FaShoppingCart></FaShoppingCart> Cart
 						</Link>
-						<button className="border border-white px-4 py-1.5 rounded-md text-white text-sm font-semibold">
+						<button className="border px-4 py-1.5 rounded-md text-white text-sm font-semibold">
 							Sign in
 						</button>
 					</div>
 
 					{/* Hamburger Menu for Mobile */}
-					<button onClick={() => setOpen(!open)} className="lg:hidden text-2xl cursor-pointer text-white">
+					<button
+						onClick={() => setOpen(!open)}
+						className="lg:hidden text-2xl cursor-pointer text-white">
 						<GiHamburgerMenu></GiHamburgerMenu>
 					</button>
 				</div>
@@ -52,18 +54,22 @@ const Navbar = () => {
 							<li className="cursor-pointer">Shop</li>
 							<li className="cursor-pointer">About us</li>
 							<li className="cursor-pointer">Blog</li>
-							
-                            <li className="cursor-pointer"><Link className="text-sm flex items-center gap-2">
-								<FaHeart></FaHeart> Favorites
-							</Link></li>
-                            <li className="cursor-pointer"><Link className="text-sm flex items-center gap-2">
-								<FaShoppingCart></FaShoppingCart> Cart
-							</Link></li>
-                            <li><button className="border px-4 py-1.5 rounded-md text-sm font-semibold cursor-pointer">
-								Sign in
-							</button></li>
-							
-							
+
+							<li className="cursor-pointer">
+								<Link className="text-sm flex items-center gap-2">
+									<FaHeart></FaHeart> Favorites
+								</Link>
+							</li>
+							<li className="cursor-pointer">
+								<Link className="text-sm flex items-center gap-2">
+									<FaShoppingCart></FaShoppingCart> Cart
+								</Link>
+							</li>
+							<li>
+								<button className="border px-4 py-1.5 rounded-md text-sm font-semibold cursor-pointer">
+									Sign in
+								</button>
+							</li>
 						</ul>
 					</div>
 				)}

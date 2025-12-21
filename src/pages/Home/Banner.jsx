@@ -1,7 +1,7 @@
 import React from "react";
 
-import heroImage from "../../assets/images/girl.webp";
-import saladImage from "../../assets/images/salad.png";
+import heroImage from "../../assets/images/girl.png";
+import saladImage from "../../assets/images/Special Offer.png";
 import appStore from "../../assets/images/appstore.png";
 import playStore from "../../assets/images/googleplay.png";
 import leave1 from "../../assets/images/Leave1.png";
@@ -14,15 +14,10 @@ const Banner = () => {
 			<div className="hidden lg:block absolute top-0 right-0 w-[35%] h-full z-0"></div>
 
 			<div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center px-6 lg:px-20 pt-10 lg:pt-20">
+				{/* Top Leaf */}
+				<img className="hidden lg:block absolute top-10 w-16" src={leave1} alt="Leave" />
 				{/* LEFT CONTENT */}
 				<div className="order-2 lg:order-1 pt-10 lg:pt-0 pb-10">
-					{/* Top Leaf */}
-					<img
-						className="hidden lg:block absolute top-10 left-0 w-16"
-						src={leave1}
-						alt="Leave"
-					/>
-
 					<span className="inline-block bg-[#749B3F1A] text-[#749B3F] text-sm lg:text-lg font-medium px-4 py-1 rounded-md mb-4">
 						Welcome to Fresh Harvest
 					</span>
@@ -43,29 +38,8 @@ const Banner = () => {
 						</button>
 
 						{/* Offer Card */}
-						<div className="mt-8 lg:mt-0 lg:absolute lg:top-12 lg:left-32 z-20 bg-white rounded-2xl p-3 flex items-center gap-4 shadow-xl border border-gray-100 w-[280px]">
-							<div className="flex-1">
-								<p className="text-[12px] text-[#176D38] font-bold">
-									Special Offer
-								</p>
-								<h4 className="text-[#212337] text-xl font-bold leading-tight">
-									Fresh Salad
-								</h4>
-								<p className="text-[12px] text-[#212337] my-1">
-									Up to <span className="text-lg font-bold">70%</span> off
-								</p>
-								<div className="inline-block bg-[#176D38] px-2 py-1 rounded-md">
-									<span className="text-[9px] text-white font-bold">CODE :</span>
-									<span className="text-[9px] text-[#FAC714] font-bold ml-1">
-										FRESH25
-									</span>
-								</div>
-							</div>
-							<img
-								src={saladImage}
-								className="w-20 h-20 rounded-xl object-cover"
-								alt="salad"
-							/>
+						<div className="lg:absolute lg:top-12 lg:left-32 z-20">
+							<img src={saladImage} className="rounded-xl object-cover" alt="salad" />
 
 							{/* Curved Arrow Icon */}
 							<div className="absolute -top-10 -left-10 hidden lg:block">
@@ -108,8 +82,12 @@ const Banner = () => {
 						alt="small leave"
 					/>
 
-					<div className="border-4 border-green-400">
-						<img src={heroImage} alt="Fresh Harvest Girl" className="border w-auto h-auto ml-60" />
+					<div className="">
+						<img
+							src={heroImage}
+							alt="Fresh Harvest Girl"
+							className="w-auto h-auto ml-20"
+						/>
 					</div>
 				</div>
 			</div>
