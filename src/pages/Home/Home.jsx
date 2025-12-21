@@ -5,7 +5,7 @@ import FreshProducts from "./FreshProducts/FreshProducts";
 const Home = () => {
 	return (
 		<>
-			<section className="relative w-full border bg-[url(src/assets/images/Bg.png)] bg-cover bg-center overflow-hidden">
+			<section className="relative w-full bg-[url(src/assets/images/Bg.png)] bg-cover bg-center overflow-hidden">
 				{/* Right green panel */}
 				<div className="absolute top-0 right-0 h-full w-[35%] bg-[#7da13a]" />
 
