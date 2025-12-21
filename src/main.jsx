@@ -6,8 +6,8 @@ import { router } from "./router/router";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
-		<RouterProvider router={router}>
-            
-        </RouterProvider>
+		<div className="font-rubik">
+			<RouterProvider router={router}></RouterProvider>
+		</div>
 	</StrictMode>
 );
