@@ -9,7 +9,7 @@ import smallLeave from "../../assets/images/leave-small.png";
 
 const Banner = () => {
 	return (
-		<div className="relative max-w-[1440px] mx-auto overflow-hidden ">
+		<div className="relative max-w-350 mx-auto overflow-hidden ">
 			{/* Right Side Green Shape */}
 			<div className="hidden lg:block absolute top-0 right-0 w-[35%] h-full z-0"></div>
 
