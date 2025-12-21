@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "./Banner";
 import FreshProducts from "./FreshProducts/FreshProducts";
+import About from "../../components/About/About";
 
 const Home = () => {
 	return (
@@ -16,6 +17,7 @@ const Home = () => {
 			</section>
 		
             <FreshProducts></FreshProducts>
+            <About></About>
         
         </>
 	);
