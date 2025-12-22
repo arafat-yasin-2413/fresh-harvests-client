@@ -4,6 +4,7 @@ import FreshProducts from "./FreshProducts/FreshProducts";
 import About from "../../components/About/About";
 import SeasonalFruit from "../../components/SeasonalFruit/SeasonalFruit";
 import Testimonial from "../../components/Testimonial/Testimonial";
+import Blog from "../../components/Blog/Blog";
 
 const Home = () => {
 	return (
@@ -22,6 +23,7 @@ const Home = () => {
             <About></About>
             <SeasonalFruit></SeasonalFruit>
             <Testimonial></Testimonial>
+            <Blog></Blog>
         
         </>
 	);
