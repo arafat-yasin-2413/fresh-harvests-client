@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "../../../components/ProductCard/ProductCard";
+import { useQuery } from "@tanstack/react-query";
+import useAxios from "../../../hooks/useAxios";
+import CategoryButton from "../../../components/CategoryButton/CategoryButton";
 
 const FreshProducts = () => {
+	const axiosInstance = useAxios();
+	const [activeCategory, setActiveCategory] = useState("All");
+
+	const {
+		data: categories = [],
+		isLoading,
+		isError,
+	} = useQuery({
+		queryKey: ["categories"],
+		queryFn: async () => {
+			const res = await axiosInstance.get("/category");
+			return res.data?.data;
+		},
+	});
+
+	console.log(categories);
+	const allCategories = ["All", ...categories.map((category) => category.categoryName)];
+
 	return (
 		<div className="relative max-w-350 mx-auto overflow-hidden pt-20 pb-10">
 			<div className="">
@@ -21,18 +42,14 @@ const FreshProducts = () => {
 
 				{/* Category buttons */}
 				<div className="flex justify-center items-center gap-2.5 pt-1 pb-6">
-					<button className="border border-[#D9D9D9] px-5 py-2 rounded-lg text-[#A6A6A6] text-[18px] font-light cursor-pointer">
-						All
-					</button>
-					<button className="border border-[#D9D9D9] px-5 py-2 rounded-lg text-[#A6A6A6] text-[18px] font-light cursor-pointer">
-						Fruits
-					</button>
-					<button className="border border-[#D9D9D9] px-5 py-2 rounded-lg text-[#A6A6A6] text-[18px] font-light cursor-pointer">
-						Vegetables
-					</button>
-					<button className="border border-[#D9D9D9] px-5 py-2 rounded-lg text-[#A6A6A6] text-[18px] font-light cursor-pointer">
-						Salad
-					</button>
+					{allCategories.map((category) => (
+						<CategoryButton
+							key={category}
+							label={category}
+							active={activeCategory === category}
+							onClick={() => setActiveCategory(category)}
+						/>
+					))}
 				</div>
 			</div>
 
