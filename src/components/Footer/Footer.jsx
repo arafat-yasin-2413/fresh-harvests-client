@@ -6,15 +6,15 @@ import { Link } from "react-router";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import { CgMail } from "react-icons/cg";
 import { CiLocationOn } from "react-icons/ci";
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
-import visa from "../../assets/images/Visa.png";
+import visa from "../../assets/images/visa.png";
 import applepay from "../../assets/images/applypay.png";
 import paypal from "../../assets/images/paypal.png";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
 	return (
-		<div className="w-[1900px] bg-[#F4F6F6] mx-auto overflow-hidden pt-20 pb-10">
+		<div className="w-475 bg-[#F4F6F6] mx-auto overflow-hidden pt-20 pb-10">
 			<div className="max-w-350 mx-auto flex justify-between items-center">
 				{/* div 1 */}
 				<div>
