@@ -3,7 +3,7 @@ import fruitImage from "../../assets/images/fruits.png";
 
 const SeasonalFruit = () => {
 	return (
-		<div className="relative w-full bg-[url(src/assets/images/Bg.png)] bg-cover bg-center overflow-hidden mb-20">
+		<div className="relative w-[1900px] mx-auto bg-[url(src/assets/images/Bg.png)] bg-cover bg-center overflow-x-hidden mb-20">
 			{/* main content div */}
 			<div className="max-w-350 mx-auto flex justify-between items-center pt-20 pb-20">
 				{/* left side contents */}

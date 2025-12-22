@@ -14,7 +14,7 @@ const Navbar = () => {
 				<div className="flex items-center justify-between py-5">
 					{/* Logo */}
 					<div className="flex items-center">
-						<MainLogo className="w-56 h-10"></MainLogo>
+						<MainLogo className={"w-56 h-10"}></MainLogo>
 					</div>
 
 					{/* Desktop Menu */}

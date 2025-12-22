@@ -56,6 +56,7 @@ const Banner = () => {
 						</div>
 					</div>
 
+                    {/* app store and play store */}
 					<div className="mt-20 lg:mt-32">
 						<h5 className="text-[#4A4A52] text-sm font-medium mb-3">Download App:</h5>
 						<div className="flex items-center gap-4 justify-center lg:justify-start">
