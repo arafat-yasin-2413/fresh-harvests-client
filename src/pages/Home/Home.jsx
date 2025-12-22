@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import FreshProducts from "./FreshProducts/FreshProducts";
 import About from "../../components/About/About";
 import SeasonalFruit from "../../components/SeasonalFruit/SeasonalFruit";
+import Testimonial from "../../components/Testimonial/Testimonial";
 
 const Home = () => {
 	return (
@@ -20,6 +21,7 @@ const Home = () => {
             <FreshProducts></FreshProducts>
             <About></About>
             <SeasonalFruit></SeasonalFruit>
+            <Testimonial></Testimonial>
         
         </>
 	);
