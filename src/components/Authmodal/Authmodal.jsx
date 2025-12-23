@@ -1,5 +1,8 @@
 import React from "react";
 
+import google from "../../assets/images/google.png";
+import facebook from "../../assets/images/facebook.png";
+
 const Authmodal = ({ type, onClose, switchModal }) => {
 	return (
 		<div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-3">
@@ -14,47 +17,67 @@ const Authmodal = ({ type, onClose, switchModal }) => {
 				</h2>
 
 				<form className="space-y-4">
+					<label className="font-questrial">Full Name</label>
 					{type === "register" && (
 						<input
 							type="text"
-							placeholder="Full Name"
-							className="input input-bordered w-full"
+							placeholder="Enter your name"
+							className="input input-bordered w-full font-questrial"
 						/>
 					)}
 
+					<label className="font-questrial">Email</label>
 					<input
 						type="email"
-						placeholder="Email"
-						className="input input-bordered w-full"
+						placeholder="Enter your email"
+						className="input input-bordered w-full font-questrial"
 					/>
 
+					<label className="font-questrial">Password</label>
 					<input
 						type="password"
-						placeholder="Password"
-						className="input input-bordered w-full"
+						placeholder="Enter your password"
+						className="input input-bordered w-full font-questrial"
 					/>
 
 					{type === "login" && (
 						<div className="flex justify-between text-sm">
 							<label className="flex gap-2 items-center">
-								<input type="checkbox" className="checkbox checkbox-sm" />
+								<input
+									type="checkbox"
+									className="checkbox checkbox-sm text-[#FF6A1A] border border-[#FF6A1A]"
+								/>
 								Remember me
 							</label>
-							<span className="text-orange-500 cursor-pointer">Forgot Password</span>
+							<span className="text-[#4A4A52] underline cursor-pointer">
+								Forgot Password
+							</span>
 						</div>
 					)}
 
-					<button className="btn btn-warning w-full text-white">
+					<button className="btn bg-[#FF6A1A] w-full text-white">
 						{type === "login" ? "Login" : "Register"}
 					</button>
 				</form>
 
 				{/* Social login */}
-				<div className="my-4 text-center text-sm">Or sign in with</div>
+				<div className="flex w-full flex-col">
+					{type === "register" ? (
+						<div className="divider">Or Sign Up with</div>
+					) : (
+						<div className="divider">Or Sign in with</div>
+					)}
+				</div>
 
 				<div className="flex gap-3">
-					<button className="btn btn-outline w-1/2">Google</button>
-					<button className="btn btn-outline w-1/2">Facebook</button>
+					<button className="flex items-center btn btn-outline-[#D9D9D9] w-1/2">
+						<img className="w-5" src={google} alt="logo of google" />
+						Google
+					</button>
+					<button className="flex items-center btn btn-outline-[#D9D9D9] w-1/2">
+						<img className="w-5" src={facebook} alt="logo of facebook" />
+						Facebook
+					</button>
 				</div>
 
 				{/* Switch */}
