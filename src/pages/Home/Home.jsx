@@ -9,7 +9,7 @@ import Blog from "../../components/Blog/Blog";
 const Home = () => {
 	return (
 		<>
-			<section className="relative w-[1900px] mx-auto bg-[url(src/assets/images/Bg.png)] bg-cover bg-center overflow-hidden">
+			<section className="relative w-475 mx-auto bg-[url(src/assets/images/Bg.png)] bg-cover bg-center overflow-hidden">
 				{/* Right green panel */}
 				<div className="absolute top-0 right-0 h-full w-[35%] bg-[#7da13a]" />
 

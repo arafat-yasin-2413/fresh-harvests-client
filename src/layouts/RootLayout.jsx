@@ -9,8 +9,8 @@ const RootLayout = () => {
 
 	return (
 		<>
-			<Navbar></Navbar>
-			<div class="min-h-screen">
+			<Navbar setAuthModal={setAuthModal}></Navbar>
+			<div className="min-h-screen">
 				<Outlet></Outlet>
 			</div>
 
