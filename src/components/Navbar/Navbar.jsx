@@ -19,8 +19,8 @@ const Navbar = () => {
 
 					{/* Desktop Menu */}
 					<ul className="font-questrial hidden lg:flex gap-8 text-[#4A4A52] text-sm">
-						<Link>Home</Link>
-						<Link>Shop</Link>
+						<Link to="/">Home</Link>
+						<Link to="/shop">Shop</Link>
 						<Link>About us</Link>
 						<Link>Blog</Link>
 					</ul>
@@ -50,10 +50,10 @@ const Navbar = () => {
 				{open && (
 					<div className="lg:hidden bg-white rounded-xl shadow-md p-4">
 						<ul className="flex flex-col gap-4 text-sm">
-							<li className="cursor-pointer">Home</li>
-							<li className="cursor-pointer">Shop</li>
-							<li className="cursor-pointer">About us</li>
-							<li className="cursor-pointer">Blog</li>
+							<li className="cursor-pointer"><Link to="/">Home</Link></li>
+							<li className="cursor-pointer"><Link to="/shop">Shop</Link></li>
+							<li className="cursor-pointer"><Link>About us</Link></li>
+							<li className="cursor-pointer"><Link>Blog</Link></li>
 
 							<li className="cursor-pointer">
 								<Link className="text-sm flex items-center gap-2">
