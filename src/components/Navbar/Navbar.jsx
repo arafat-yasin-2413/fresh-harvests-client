@@ -1,12 +1,14 @@
 import React from "react";
 import MainLogo from "../MainLogo/MainLogo";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = ({ setAuthModal }) => {
 	const [open, setOpen] = useState(false);
+    const location = useLocation();
+    const isHome = location.pathname === "/";
 
 	return (
 		<div className="absolute top-0 left-0 w-full z-50">
@@ -27,15 +29,15 @@ const Navbar = ({ setAuthModal }) => {
 
 					{/* Right Elements (Desktop) */}
 					<div className="font-questrial hidden lg:flex items-center gap-5">
-						<Link className="text-sm  flex items-center gap-2">
+						<Link className={`text-sm flex items-center gap-2 ${isHome && "text-white"}`}>
 							<FaHeart></FaHeart> Favorites
 						</Link>
-						<Link className="text-sm  flex items-center gap-2">
+						<Link className={`text-sm  flex items-center gap-2 ${isHome && "text-white"}`}>
 							<FaShoppingCart></FaShoppingCart> Cart
 						</Link>
 						<button
 							onClick={() => setAuthModal("login")}
-							className="border px-4 py-1.5 rounded-md  text-sm font-semibold">
+							className={`border px-4 py-1.5 rounded-md  text-sm font-semibold ${isHome && "border-white text-white"}`}>
 							Sign in
 						</button>
 					</div>
