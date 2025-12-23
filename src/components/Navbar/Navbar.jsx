@@ -5,7 +5,7 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-const Navbar = () => {
+const Navbar = ({ setAuthModal }) => {
 	const [open, setOpen] = useState(false);
 
 	return (
@@ -33,7 +33,9 @@ const Navbar = () => {
 						<Link className="text-sm  flex items-center gap-2">
 							<FaShoppingCart></FaShoppingCart> Cart
 						</Link>
-						<button className="border px-4 py-1.5 rounded-md  text-sm font-semibold">
+						<button
+							onClick={() => setAuthModal("login")}
+							className="border px-4 py-1.5 rounded-md  text-sm font-semibold">
 							Sign in
 						</button>
 					</div>
@@ -50,10 +52,18 @@ const Navbar = () => {
 				{open && (
 					<div className="lg:hidden bg-white rounded-xl shadow-md p-4">
 						<ul className="flex flex-col gap-4 text-sm">
-							<li className="cursor-pointer"><Link to="/">Home</Link></li>
-							<li className="cursor-pointer"><Link to="/shop">Shop</Link></li>
-							<li className="cursor-pointer"><Link>About us</Link></li>
-							<li className="cursor-pointer"><Link>Blog</Link></li>
+							<li className="cursor-pointer">
+								<Link to="/">Home</Link>
+							</li>
+							<li className="cursor-pointer">
+								<Link to="/shop">Shop</Link>
+							</li>
+							<li className="cursor-pointer">
+								<Link>About us</Link>
+							</li>
+							<li className="cursor-pointer">
+								<Link>Blog</Link>
+							</li>
 
 							<li className="cursor-pointer">
 								<Link className="text-sm flex items-center gap-2">
@@ -66,7 +76,12 @@ const Navbar = () => {
 								</Link>
 							</li>
 							<li>
-								<button className="border px-4 py-1.5 rounded-md text-sm font-semibold cursor-pointer">
+								<button
+									onClick={() => {
+										setAuthModal("login");
+										setOpen(false);
+									}}
+									className="border px-4 py-1.5 rounded-md text-sm font-semibold cursor-pointer">
 									Sign in
 								</button>
 							</li>

@@ -19,7 +19,7 @@ const ProductDetails = () => {
 		},
 	});
 
-	const { id,productName, description, price, images, category } = product || {};
+	const { productName, description, price, images, category } = product || {};
 	const firstImage = images?.[0];
 
 	if (isLoading) {
