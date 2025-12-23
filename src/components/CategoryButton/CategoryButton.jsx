@@ -5,7 +5,7 @@ const CategoryButton = ({label, active, onClick}) => {
 		<>
 			<button
 				onClick={onClick}
-				className={`border px-5 py-2 rounded-lg text-[18px] font-light cursor-pointer
+				className={`border px-5 py-2 rounded-lg text-[18px] font-light cursor-pointer hover:bg-[#749B3F] hover:text-white
         ${
 			active ? "bg-[#749B3F] text-white border-[#749B3F]" : "border-[#D9D9D9] text-[#A6A6A6]"
 		}`}>

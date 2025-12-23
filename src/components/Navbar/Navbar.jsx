@@ -27,13 +27,13 @@ const Navbar = () => {
 
 					{/* Right Elements (Desktop) */}
 					<div className="font-questrial hidden lg:flex items-center gap-5">
-						<Link className="text-sm text-white flex items-center gap-2">
+						<Link className="text-sm  flex items-center gap-2">
 							<FaHeart></FaHeart> Favorites
 						</Link>
-						<Link className="text-sm text-white flex items-center gap-2">
+						<Link className="text-sm  flex items-center gap-2">
 							<FaShoppingCart></FaShoppingCart> Cart
 						</Link>
-						<button className="border px-4 py-1.5 rounded-md text-white text-sm font-semibold">
+						<button className="border px-4 py-1.5 rounded-md  text-sm font-semibold">
 							Sign in
 						</button>
 					</div>
