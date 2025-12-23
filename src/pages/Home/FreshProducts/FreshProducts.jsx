@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import ProductCard from "../../../components/ProductCard/ProductCard";
 import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../../hooks/useAxios";
@@ -8,11 +8,8 @@ const FreshProducts = () => {
 	const axiosInstance = useAxios();
 	const [activeCategory, setActiveCategory] = useState("All");
 
-	const {
-		data: categories = [],
-		isLoading,
-		isError,
-	} = useQuery({
+	// fetching "categories"
+	const { data: categories = [] } = useQuery({
 		queryKey: ["categories"],
 		queryFn: async () => {
 			const res = await axiosInstance.get("/category");
@@ -20,8 +17,30 @@ const FreshProducts = () => {
 		},
 	});
 
-	console.log(categories);
+	// console.log(categories);
 	const allCategories = ["All", ...categories.map((category) => category.categoryName)];
+
+	// fetching products
+	const { data: products = [], isLoading } = useQuery({
+		queryKey: ["products"],
+		queryFn: async () => {
+			const res = await axiosInstance.get("/products");
+			return res.data?.data;
+		},
+	});
+
+	// filtering products by category
+	const filteredProducts = useMemo(() => {
+		if (activeCategory === "All") {
+			return products.slice(0, 8);
+		}
+
+		return products.filter((product) => product.category?.categoryName === activeCategory);
+	}, [activeCategory, products]);
+
+	if (isLoading) {
+		return <p className="text-center py-20 text-red-500 font-semibold">Loading Products ...</p>;
+	}
 
 	return (
 		<div className="relative max-w-350 mx-auto overflow-hidden pt-20 pb-10">
@@ -54,15 +73,16 @@ const FreshProducts = () => {
 			</div>
 
 			{/* Grid view product cards will be shown here below */}
-			<div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-				<ProductCard></ProductCard>
-				<ProductCard></ProductCard>
-				<ProductCard></ProductCard>
-				<ProductCard></ProductCard>
-				<ProductCard></ProductCard>
-				<ProductCard></ProductCard>
-				<ProductCard></ProductCard>
-				<ProductCard></ProductCard>
+			<div className="grid grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+				{filteredProducts.length === 0 ? (
+					<p className="col-span-full text-center py-16 text-gray-500 text-lg font-medium">
+						No products found in this category
+					</p>
+				) : (
+					filteredProducts.map((product) => (
+						<ProductCard key={product.id} product={product}></ProductCard>
+					))
+				)}
 			</div>
 
 			{/* See All Products Button */}
