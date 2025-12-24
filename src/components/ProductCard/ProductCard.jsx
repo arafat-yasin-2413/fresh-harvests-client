@@ -3,7 +3,7 @@ import { Link } from "react-router";
 const ProductCard = ({product}) => {
 
     const {productName, price, images} = product || {};
-    console.log(product);
+    // console.log(product);
     const firstImage = images?.[0];
 
 	return (
