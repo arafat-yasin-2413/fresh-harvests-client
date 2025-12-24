@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 import google from "../../assets/images/google.png";
 import facebook from "../../assets/images/facebook.png";
+import useAxios from "../../hooks/useAxios";
 
 const Authmodal = ({ type, onClose, switchModal }) => {
+	const axiosInstance = useAxios();
+
+	const [formData, setFormData] = useState({
+		userName: "",
+		email: "",
+		password: "",
+	});
+
+	const handleRegister = async () => {
+		try {
+			const role = formData.email === "admin@gmail.com" ? "ADMIN" : "USER";
+
+			const userInfo = {
+				userName: formData.userName,
+				email: formData.email,
+				password: formData.password,
+				profileImage: null,
+				role,
+			};
+
+			const res = await axiosInstance.post("/users/register", userInfo);
+			console.log("SUCCESS:", res.data);
+		} catch (error) {
+			console.error("REGISTER ERROR:", error.response?.data || error.message);
+		}
+	};
+
 	return (
 		<div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-3">
 			<div className="bg-white w-full max-w-md rounded-xl p-6 relative">
@@ -16,13 +44,22 @@ const Authmodal = ({ type, onClose, switchModal }) => {
 					{type === "login" ? "Login" : "Register"}
 				</h2>
 
-				<form className="space-y-4">
+				<form
+					onSubmit={(e) => {
+						e.preventDefault();
+						handleRegister();
+					}}
+					className="space-y-4">
 					<label className="font-questrial">Full Name</label>
 					{type === "register" && (
 						<input
 							type="text"
 							placeholder="Enter your name"
 							className="input input-bordered w-full font-questrial"
+							value={formData.userName}
+							onChange={(e) => {
+								setFormData({ ...formData, userName: e.target.value });
+							}}
 						/>
 					)}
 
@@ -31,6 +68,10 @@ const Authmodal = ({ type, onClose, switchModal }) => {
 						type="email"
 						placeholder="Enter your email"
 						className="input input-bordered w-full font-questrial"
+						value={formData.email}
+						onChange={(e) => {
+							setFormData({ ...formData, email: e.target.value });
+						}}
 					/>
 
 					<label className="font-questrial">Password</label>
@@ -38,6 +79,10 @@ const Authmodal = ({ type, onClose, switchModal }) => {
 						type="password"
 						placeholder="Enter your password"
 						className="input input-bordered w-full font-questrial"
+						value={formData.password}
+						onChange={(e) => {
+							setFormData({ ...formData, password: e.target.value });
+						}}
 					/>
 
 					{type === "login" && (
