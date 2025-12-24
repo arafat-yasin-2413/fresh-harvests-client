@@ -23,7 +23,7 @@ const Home = () => {
             <About></About>
             <SeasonalFruit></SeasonalFruit>
             <Testimonial></Testimonial>
-            <Blog></Blog>
+            <Blog></Blog> 
         
         </>
 	);

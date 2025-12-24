@@ -9,11 +9,11 @@ import smallLeave from "../../assets/images/leave-small.png";
 
 const Banner = () => {
 	return (
-		<div className="relative max-w-350 mx-auto overflow-hidden ">
+		<div className="relative w-full">
 			{/* Right Side Green Shape */}
-			<div className="hidden lg:block absolute top-0 right-0 w-[35%] h-full z-0"></div>
+			<div className="hidden lg:block absolute top-0 right-0 w-[35%] h-full z-0 bg-[url(src/assets/images/mask.png)] bg-cover bg-center"></div>
 
-			<div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center px-6 lg:px-20 pt-10 lg:pt-20">
+			<div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center lg:px-20 pt-10 lg:pt-20">
 				{/* Top Leaf */}
 				<img className="hidden lg:block absolute top-10 w-16" src={leave1} alt="Leave" />
 				{/* LEFT CONTENT */}
